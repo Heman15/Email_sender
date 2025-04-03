@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Email Sender</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .disclaimer {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: #555;
+      background: #fff3cd;
+      padding: 0.8rem;
+      border-left: 4px solid #ffc107;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Public Email Sender Tool</h1>
+
+  <div class="disclaimer">
+    <strong>Important:</strong> This tool sends emails using your own Gmail account.<br>
+    Please use a <strong>Gmail App Password</strong>, not your regular Gmail password.<br>
+    We do not store or save any credentials or data. Use responsibly.
+  </div>
+
+  <form action="https://your-render-backend.onrender.com/send" method="POST" enctype="multipart/form-data">
+    <label for="email">Your Gmail Address:</label>
+    <input type="email" name="email" required>
+
+    <label for="app_password">Gmail App Password:</label>
+    <input type="password" name="app_password" required>
+
+    <label for="subject">Email Subject:</label>
+    <input type="text" name="subject" required>
+
+    <label for="body">Email Body (use {name} to personalize):</label>
+    <textarea name="body" rows="10" required></textarea>
+
+    <label for="recipients_csv">Upload Recipients CSV:</label>
+    <input type="file" name="recipients_csv" accept=".csv" required>
+
+    <label for="consent">
+      <input type="checkbox" name="consent" required>
+      I confirm I am using my own Gmail account and app password, and take full responsibility for its use.
+    </label>
+
+    <button type="submit">Send Emails</button>
+  </form>
+</body>
+</html>
